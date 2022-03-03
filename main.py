@@ -547,10 +547,15 @@ class SettingsPage(GridLayout, Screen, Widget):
 
         self.cols = 1
 
-        self.page_layout = GridLayout()
-        self.page_layout.cols = 3
+        self.page_layout = GridLayout(cols=3, spacing=5)
 
-        self.page_layout.add_widget(Label(text="MMA course end:", font_size=50, bold=True, font_name="Daytona"))
+        self.cell = GridLayout(cols=1, spacing=5)
+
+        self.cell.add_widget(Label(text="MMA", font_size=50, bold=True, font_name="Daytona"))
+        self.cell.add_widget(Label(text="course", font_size=50, bold=True, font_name="Daytona"))
+        self.cell.add_widget(Label(text="end:", font_size=50, bold=True, font_name="Daytona"))
+
+        self.page_layout.add_widget(self.cell)
 
         self.dropdown_month = DropDown()
 
