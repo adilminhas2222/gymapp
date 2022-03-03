@@ -131,7 +131,7 @@ class MemberData:
 
         message = MIMEMultipart('mixed')
         message['From'] = 'MMA unit app <{sender}>'.format(sender=gmail)
-        message['To'] = 'itzadil222@gmail.com'
+        message['To'] = 'Imran.farooq27@gmail.com'
         message['Subject'] = 'Monthly update'
 
         attachmentPath = "./"+filename
@@ -152,7 +152,7 @@ class MemberData:
             server.ehlo()
             server.login(gmail, password)  # "Imran.farooq27@gmail.com"
             cc = ''
-            server.sendmail(gmail, "itzadil222@gmail.com".split(";") + (cc.split(";") if cc else []), msg_full)
+            server.sendmail(gmail, "Imran.farooq27@gmail.com".split(";") + (cc.split(";") if cc else []), msg_full)
             server.quit()
 
         print('email sent')
