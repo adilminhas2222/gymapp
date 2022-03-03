@@ -1,0 +1,120 @@
+#:import hex kivy.utils.get_color_from_hex
+
+WindowManager:
+    FrontPage:
+    MainPage:
+    SearchPage:
+    AddMember:
+    SettingsPage:
+
+<FrontPage>:
+    name: "front"
+    canvas.before:
+        Color:
+            rgba: hex('#960018')
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+    GridLayout:
+        cols:1
+        padding: [50,50]
+
+        Label:
+            text: "Gym Memberships"
+            bold: True
+            size_hint: 0.8,0.5
+            font_size: 110
+            font_name: "LeagueGothic"
+
+        GridLayout:
+            cols:2
+
+            Label:
+                text: "Password:"
+                font_size: 90
+                font_name: "Daytona"
+                bold: True
+                size_hint: 1,0.5
+
+            TextInput:
+                id: passw
+                text: "MMAadm1n"
+                font_size: 50
+                font_name: "Daytona"
+                multiline: False
+                size_hint: 1,0.5
+
+            Label:
+                size_hint: 1,0.5
+
+            Label:
+                size_hint: 1,0.5
+
+        GridLayout:
+            cols:3
+
+            Label:
+                size_hint: 0.3,0.1
+
+            Button:
+                text: "Submit"
+                font_size: 70
+                font_name: "Daytona"
+                bold: True
+                size_hint: 0.8,0.7
+
+                on_release:
+                    app.root.current = "main" if passw.text == "MMAadm1n" else "front"
+                    root.manager.transition.direction = "left"
+
+            Label:
+                size_hint: 0.3,0.1
+            Label:
+                size_hint: 0.3,0.1
+            Label:
+                size_hint: 0.3,0.1
+            Label:
+                size_hint: 0.3,0.3
+
+<MainPage>:
+    name: "main"
+    canvas.before:
+        Color:
+            rgba: hex('#960018')
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+
+<AddMember>:
+    name: "add"
+
+    canvas.before:
+        Color:
+            rgba: hex('#960018')
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+
+<SettingsPage>:
+    name: "settings"
+
+    canvas.before:
+        Color:
+            rgba: hex('#960018')
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+
+<SearchPage>:
+    name: "search"
+
+    canvas.before:
+        Color:
+            rgba: hex('#960018')
+        Rectangle:
+            pos: self.pos
+            size: self.size
