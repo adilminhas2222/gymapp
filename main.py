@@ -549,13 +549,19 @@ class SettingsPage(GridLayout, Screen, Widget):
 
         self.page_layout = GridLayout(cols=3, spacing=5)
 
-        self.cell = GridLayout(cols=1, spacing=5)
+        self.cell = GridLayout(cols=1)
 
+        self.cell.add_widget(Label())
         self.cell.add_widget(Label(text="MMA", font_size=50, bold=True, font_name="Daytona"))
         self.cell.add_widget(Label(text="course", font_size=50, bold=True, font_name="Daytona"))
         self.cell.add_widget(Label(text="end:", font_size=50, bold=True, font_name="Daytona"))
+        self.cell.add_widget(Label())
 
+        self.page_layout.add_widget(Label())
+        self.page_layout.add_widget(Label())
+        self.page_layout.add_widget(Label())
         self.page_layout.add_widget(self.cell)
+
 
         self.dropdown_month = DropDown()
 
@@ -584,6 +590,10 @@ class SettingsPage(GridLayout, Screen, Widget):
         self.year_set.bind(on_release=self.dropdown_year.open)
         self.dropdown_year.bind(on_select=lambda instance, x: setattr(self.year_set, 'text', x))
         self.page_layout.add_widget(self.year_set)
+
+        self.page_layout.add_widget(Label())
+        self.page_layout.add_widget(Label())
+        self.page_layout.add_widget(Label())
 
         self.submet = Button(text='Submit', font_size=70, font_name="Daytona", size_hint_y=None, height=200)
         self.submet.bind(on_release=self.change_settings)
