@@ -611,6 +611,9 @@ class SettingsPage(GridLayout, Screen, Widget):
         self.manager.current = "main"
 
     def change_settings(self, instance):
+        if self.month_set.text == "Month" or self.year_set.text == "Year":
+            return 0
+        
         month = self.month_set.text
         year = self.year_set.text[2:4]
         if len(str(month)) == 1:
